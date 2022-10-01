@@ -6,7 +6,7 @@
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 <link href="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.css" rel="stylesheet">
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.10.0/mapbox-gl.js"></script>
-<style>
+<style href="index.css">
 body { margin: 0; padding: 0; }
 #map { position: absolute; top: 0; bottom: 0; width: 100%; }
 </style>
@@ -27,8 +27,51 @@ body { margin: 0; padding: 0; }
         projection: 'globe' // display the map as a 3D globe
     });
 
-    // Add zoom and rotation controls to the map.
-    map.addControl(new mapboxgl.NavigationControl());
+	// Add zoom and rotation controls to the map.
+	map.addControl(new mapboxgl.NavigationControl());
+
+	// wait for map to load before adjusting it
+	map.on('load', () => {
+ 
+	// define layer names
+	const layers = [
+		'Atchafalaya Basin',
+		'10-20'
+	];
+
+	const colors = [
+		'#FFEDA0',
+		'#FED976'
+	];
+ 
+	// create legend
+	const legend = document.getElementById('legend');
+ 
+	layers.forEach((layer, i) => {
+	const color = colors[i];
+	const item = document.createElement('div');
+	const key = document.createElement('span');
+	key.className = 'legend-key';
+	key.style.backgroundColor = color;
+ 
+	const value = document.createElement('span');
+	value.innerHTML = `${layer}`;
+	item.appendChild(key);
+	item.appendChild(value);
+	legend.appendChild(item);
+	});
+ 
+	// change info window on hover
+	map.on('mousemove', (event) => {
+	const states = map.queryRenderedFeatures(event.point, {
+		layers: ['statedata']
+	});
+
+	document.getElementById('pd').innerHTML = states.length
+		? `<h3>${states[0].properties.name}</h3><p><strong><em>${states[0].properties.density}</strong> people per square mile</em></p>`
+		: `<p>Hover over a state!</p>`;
+		});
+	});
 </script>
 
 </body>
