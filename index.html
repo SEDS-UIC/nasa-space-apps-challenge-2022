@@ -37,45 +37,23 @@ body { margin: 0; padding: 0; }
 
 	// wait for map to load before adjusting it
 	map.on('load', () => {
- 
-	// define layer names
-	const layers = [
-		'Atchafalaya Basin',
-		'10-20'
-	];
+		map.addSource('basins', {
+			type: 'geojson',
 
-	const colors = [
-		'#FFEDA0',
-		'#FED976'
-	];
- 
-	// create legend
-	const legend = document.getElementById('legend');
- 
-	layers.forEach((layer, i) => {
-	const color = colors[i];
-	const item = document.createElement('div');
-	const key = document.createElement('span');
-	key.className = 'legend-key';
-	key.style.backgroundColor = color;
- 
-	const value = document.createElement('span');
-	value.innerHTML = `${layer}`;
-	item.appendChild(key);
-	item.appendChild(value);
-	legend.appendChild(item);
-	});
- 
-	// change info window on hover
-	map.on('mousemove', (event) => {
-	const states = map.queryRenderedFeatures(event.point, {
-		layers: ['statedata']
-	});
-
-	document.getElementById('pd').innerHTML = states.length
-		? `<h3>${states[0].properties.name}</h3><p><strong><em>${states[0].properties.density}</strong> people per square mile</em></p>`
-		: `<p>Hover over a state!</p>`;
+			// Use a URL for the value for the `data` property.
+			data: 'basins.geojson'
 		});
+ 
+		map.addLayer({
+			'id': 'basins-layer',
+			'type': 'polygon',
+			'source': 'basins',
+			'paint': {
+				'polygon-stroke-width': 2,
+				'polygon-color': 'red',
+				'polygon-stroke-color': 'white'
+			}	
+		}); 
 	});
 </script>
 
