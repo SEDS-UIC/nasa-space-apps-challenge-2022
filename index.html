@@ -51,7 +51,7 @@ body { margin: 0; padding: 0; }
 			'type': 'geojson',
 
 			// Use a URL for the value for the `data` property.
-			'data': 'https://raw.githubusercontent.com/SEDS-UIC/nasa-space-apps-challenge-2022/main/basins.geojson?token=GHSAT0AAAAAABZBQOQPSY3YCMRKZADCRKKIYZYX27A'
+			'data': 'https://raw.githubusercontent.com/SEDS-UIC/nasa-space-apps-challenge-2022/main/basins.geojson'
 		});
  
 		map.addLayer({
@@ -59,7 +59,7 @@ body { margin: 0; padding: 0; }
 			'type': 'fill',
 			'source': 'basins',
 			'paint': {
-				'fill-color': 'red',
+				'fill-color': ['get', 'color'],
 				'fill-opacity': 0.4
 			},
 			firstSymbolId
