@@ -17,7 +17,7 @@ p {
   margin: 10px;
 }
 
-#sidebar {
+.sidebar {
   height: 100%;
   width: 400px;
   position: fixed;
