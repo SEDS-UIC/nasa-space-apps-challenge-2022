@@ -37,22 +37,32 @@ body { margin: 0; padding: 0; }
 
 	// wait for map to load before adjusting it
 	map.on('load', () => {
+		const layers = map.getStyle().layers;
+		// Find the index of the first symbol layer in the map style.
+		let firstSymbolId;
+		for (const layer of layers) {
+			if (layer.type === 'symbol') {
+				firstSymbolId = layer.id;
+				break;
+			}
+		}
+
 		map.addSource('basins', {
-			type: 'geojson',
+			'type': 'geojson',
 
 			// Use a URL for the value for the `data` property.
-			data: 'basins.geojson'
+			'data': 'https://raw.githubusercontent.com/SEDS-UIC/nasa-space-apps-challenge-2022/main/basins.geojson?token=GHSAT0AAAAAABZBQOQPSY3YCMRKZADCRKKIYZYX27A'
 		});
  
 		map.addLayer({
 			'id': 'basins-layer',
-			'type': 'polygon',
+			'type': 'fill',
 			'source': 'basins',
 			'paint': {
-				'polygon-stroke-width': 2,
-				'polygon-color': 'red',
-				'polygon-stroke-color': 'white'
-			}	
+				'fill-color': '#f08',
+				'fill-opacity': 0.4
+			},
+			firstSymbolId
 		}); 
 	});
 </script>
