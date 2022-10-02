@@ -133,7 +133,7 @@ p {
   position: absolute;
   bottom: 0;
   right: 0;
-  background: #fff;
+  background: rgb(77, 77, 77);
   margin-right: 20px;
   font-family: Arial, sans-serif;
   overflow: auto;
