@@ -16,20 +16,7 @@ body { margin: 0; padding: 0; }
         width: 100%;
 }
 
-.sidebar {
-    position: absolute;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-    top: 0px;
-    bottom: 15px;
-    right: 0px;
-    width: 400px;
-    width: 410px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    z-index: 100;
-}
+
 </style>
 </head>
 <body>
@@ -37,7 +24,14 @@ body { margin: 0; padding: 0; }
 <div class="sidenav">
 	<h2>Atchafalaya Basin</h2>
 	<hr style="margin-top:5px;margin-bottom:5px;">
-	<span>Water Level</span>
+	<div class="flex-container">
+		<span style="display:flex">Water Level (in ft above sea level)</span>
+   		<div class="slider">
+  			<input type="range" min="0" max="30" value="10"     oninput="rangeValue.innerText = this.value">
+  			<p id="rangeValue">10</p>
+  			<p>ft</p>
+  		</div>
+  	</div>
 	<span>Soil Accumulation Rate</span>
 	<span>Population Size</span>
 		
