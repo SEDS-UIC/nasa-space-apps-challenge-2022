@@ -46,7 +46,7 @@ body { margin: 0; padding: 0; }
    		<div class="slider">
   			<input type="range" min="10" max="35" value="13" oninput="rangeValue.innerText=this.value">
   			<p id="rangeValue">13</p>
-  			<p>35</p>
+  			<p>NTU</p>
   		</div>
   	</div>
 	<div class="flex-container">
@@ -54,20 +54,45 @@ body { margin: 0; padding: 0; }
    		<div class="slider">
   			<input type="range" min="0" max="600" value="50" oninput="rangeValue.innerText=this.value">
   			<p id="rangeValue">50</p>
-  			<p>50</p>
+  			<p>per sq mi</p>
   		</div>
   	</div>
 
-
-
-
-		
+	<div class="flex-container">
+		<span style="display:flex">Water Level (in cm above sea level)</span>
+   		<div class="slider">
+			<input type="range" min="0" max="850" value="100" oninput="rangeValue.innerText=this.value">
+  			<p id="rangeValue">100</p>
+  			<p>cm</p>
+  		</div>
+  	</div>
+	
 	<h2>Terrebonne Basin</h2>
 	<hr style="margin-top:5px;margin-bottom:5px;">
-	<span>Water Level</span>
-	<span>Soil Accumulation Rate</span>
-	<span>Population Size</span>
-</div>
+	<div class="flex-container">
+		<span style="display:flex">Sediment Accretion Rate (in mm/month)</span>
+   		<div class="slider">
+  			<input type="range" min="0" max="20" value="5" oninput="rangeValue.innerText=this.value">
+  			<p id="rangeValue">5</p>
+  			<p>mm/month</p>
+  		</div>
+  	</div>
+	<div class="flex-container">
+		<span style="display:flex">Turbidity (in NTU)</span>
+   		<div class="slider">
+  			<input type="range" min="10" max="35" value="13" oninput="rangeValue.innerText=this.value">
+  			<p id="rangeValue">13</p>
+  			<p>NTU</p>
+  		</div>
+  	</div>
+	<div class="flex-container">
+		<span style="display:flex">Population Density (in people/sq mi)</span>
+   		<div class="slider">
+  			<input type="range" min="0" max="600" value="50" oninput="rangeValue.innerText=this.value">
+  			<p id="rangeValue">50</p>
+  			<p>per sq mi</p>
+  		</div>
+  	</div>
 <div id="map"></div>
 <script>
 	// TO MAKE THE MAP APPEAR YOU MUST
