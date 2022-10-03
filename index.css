@@ -4,6 +4,10 @@ body {
   font-family: "Helvetica Neue", "Helvetica", Arial, sans-serif;
 }
 
+p {
+  font-size: 10px;
+}
+
 .sidenav {
   background: #196b20;
   width: 25%;
