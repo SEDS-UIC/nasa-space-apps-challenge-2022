@@ -8,6 +8,10 @@ p {
   font-size: 12px;
 }
 
+.flex-container {
+  justify-content: flex-start;
+}
+
 .sidenav {
   background: #196b20;
   width: 25%;
@@ -65,9 +69,8 @@ align-items: center;
 }
 
 .slider p {
-font-size: 16px;
+font-size: 12px;
 font-weight: 500;
-padding-left: 10px;
 color: black;
 }
 
