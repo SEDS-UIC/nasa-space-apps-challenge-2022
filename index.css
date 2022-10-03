@@ -5,7 +5,7 @@ body {
 }
 
 p {
-  font-size: 10px;
+  font-size: 12px;
 }
 
 .sidenav {
@@ -94,6 +94,7 @@ background: black;
 }
 
 h1 {
+  margin: 10px;
   font-size: 20px;
 }
 
