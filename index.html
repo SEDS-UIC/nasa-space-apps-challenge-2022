@@ -20,46 +20,42 @@ body { margin: 0; padding: 0; }
 </style>
 </head>
 <body>
+// Static side bar displaying the options based on our google slides
 <div class="sidenav">
-	<div class="flex-container">
 	<h1>DASPA</h1>
 	<h3>DeltA Socioeconomic Predictor Application</h3>
-	</div>
 	<p>The DeltA Socioeconomic Predictor Application (DASPA) aims to provide citizens, policymakers, and other stakeholders of the Mississippi River Delta region with knowledge of the area's socioeconomic future so that they may take action in the present. By combining NASA's Delta-X ecological datasets of the Atchafalaya and Terrebonne basins with NASA's Socioeconomic Data and Applications Center (SEDAC) data, DASPA allows users to input potential basin conditions in order to predict future socioeconomic conditions.</p>
 	<h2>Atchafalaya Basin</h2>
 	<hr style="margin-top:5px;margin-bottom:5px;">
 	<div class="flex-container">
-		<p style="display:flex">Water Level (in cm above sea level)</p>
-		<div class="slider">
-			<input type="range" min="0" max="850" value="100" oninput="rangeValue.innerText=this.value">
-  			<p id="rangeValue">100</p>
+		<span style="display:flex">Water Level (in cm above sea level)</span>
+   		<div class="slider">
+			<input type="range" min="0" max="850" value="100" oninput="waterValue.innerText=this.value">
+  			<p id="waterValue">100</p>
   			<p>cm</p>
   		</div>
   	</div>
 	<div class="flex-container">
-		
+		<span style="display:flex">Sediment Accretion Rate (in mm/month)</span>
    		<div class="slider">
-			<p style="display:flex">Sediment Accretion Rate (in mm/month)</p>
-  			<input type="range" min="0" max="20" value="5" oninput="rangeValue.innerText=this.value">
-  			<p id="rangeValue">5</p>
+  			<input type="range" min="0" max="20" value="5" oninput="sedimentValue.innerText=this.value">
+  			<p id="sedimentValue">5</p>
   			<p>mm/month</p>
   		</div>
   	</div>
 	<div class="flex-container">
-		
+		<span style="display:flex">Turbidity (in NTU)</span>
    		<div class="slider">
-			<p style="display:flex">Turbidity (in NTU)</p>
-  			<input type="range" min="10" max="35" value="13" oninput="rangeValue.innerText=this.value">
-  			<p id="rangeValue">13</p>
+  			<input type="range" min="10" max="35" value="13" oninput="TurbidityValue.innerText=this.value">
+  			<p id="TurbidityValue">13</p>
   			<p>NTU</p>
   		</div>
   	</div>
 	<div class="flex-container">
-		
+		<span style="display:flex">Population Density (in people/sq mi)</span>
    		<div class="slider">
-			<p style="display:flex">Population Density (in people/sq mi)</p>
-  			<input type="range" min="0" max="600" value="50" oninput="rangeValue.innerText=this.value">
-  			<p id="rangeValue">50</p>
+  			<input type="range" min="0" max="600" value="50" oninput="PopValue.innerText=this.value">
+  			<p id="PopValue">50</p>
   			<p>per sq mi</p>
   		</div>
   	</div>
@@ -70,8 +66,8 @@ body { margin: 0; padding: 0; }
 	<div class="flex-container">
 		<span style="display:flex">Water Level (in cm above sea level)</span>
    		<div class="slider">
-			<input type="range" min="0" max="850" value="100" oninput="rangeValue.innerText=this.value">
-  			<p id="rangeValue">100</p>
+			<input type="range" min="0" max="850" value="100" oninput="WaterValue.innerText=this.value">
+  			<p id="WaterValue">100</p>
   			<p>cm</p>
   		</div>
   	</div>
@@ -79,28 +75,27 @@ body { margin: 0; padding: 0; }
 	<div class="flex-container">
 		<span style="display:flex">Sediment Accretion Rate (in mm/month)</span>
    		<div class="slider">
-  			<input type="range" min="0" max="20" value="5" oninput="rangeValue.innerText=this.value">
-  			<p id="rangeValue">5</p>
+  			<input type="range" min="0" max="20" value="5" oninput="SedValue.innerText=this.value">
+  			<p id="SedValue">5</p>
   			<p>mm/month</p>
   		</div>
   	</div>
 	<div class="flex-container">
 		<span style="display:flex">Turbidity (in NTU)</span>
    		<div class="slider">
-  			<input type="range" min="10" max="35" value="13" oninput="rangeValue.innerText=this.value">
-  			<p id="rangeValue">13</p>
+  			<input type="range" min="10" max="35" value="13" oninput="TValue.innerText=this.value">
+  			<p id="TValue">13</p>
   			<p>NTU</p>
   		</div>
   	</div>
 	<div class="flex-container">
 		<span style="display:flex">Population Density (in people/sq mi)</span>
    		<div class="slider">
-  			<input type="range" min="0" max="600" value="50" oninput="rangeValue.innerText=this.value">
-  			<p id="rangeValue">50</p>
+  			<input type="range" min="0" max="600" value="50" oninput="POPValue.innerText=this.value">
+  			<p id="POPValue">50</p>
   			<p>per sq mi</p>
   		</div>
   	</div>
-	<button class="button-27" role="button">Predict</button>
 </div>
 <div id="map"></div>
 <script>
