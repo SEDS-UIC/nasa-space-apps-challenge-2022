@@ -89,6 +89,10 @@ cursor: pointer;
 background: black;
 }
 
+h1 {
+  font-size: 22px;
+}
+
 h2,
 h3 {
   margin: 10px;
